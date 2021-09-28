@@ -2,7 +2,7 @@
 """
 Created on Mon Jul 26 15:09:15 2021
 
-@author: laced
+@author: Anonymous
 """
 import numpy as np
 import tensorflow as tf
@@ -35,7 +35,7 @@ class Agent_tf:
                  keep_prob=.8,weightNormalization=True,days_markowitz=30,AI_model='iie',
                  entropy_coef=1e-3,strike=100,expectile_value=0.95,S_0=100,
                  mu=0,sigma=0,T=1,n_timesteps=10,num_stocks=5,loadModelFromSavedModels=False):
-        self.save_path = 'D:\SAEED\EqualRisk/results/'
+        self.save_path = './results/'
         
         self.DP_desc = 1000
         self.num_exp = 1
@@ -1891,7 +1891,7 @@ class Agent_tf:
         # fig = plt.figure()
         # plt.plot(np.arange(.5,1,.01),cvar)
         # # plt.legend()
-        # plt.savefig('D:/Saeed/Equal_Risk_RL/EqualRisk/results/APP/cvar'+str(short)+'.png')
+        # plt.savefig('./results/APP/cvar'+str(short)+'.png')
         # plt.close(fig)
         # print('------')
         
@@ -1909,7 +1909,7 @@ class Agent_tf:
         #     fig = plt.figure()
         #     plt.scatter(price_mat[:,i],action[:,i], label=str(i), s=1)
         #     # plt.legend()
-        #     plt.savefig('D:/Saeed/Equal_Risk_RL/EqualRisk/results/APP/action_t_'+str(i)+str(short)+'.png')
+        #     plt.savefig('./results/APP/action_t_'+str(i)+str(short)+'.png')
         #     plt.close(fig)
         #     print('------')
         

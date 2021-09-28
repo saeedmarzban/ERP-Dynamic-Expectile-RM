@@ -1,3 +1,9 @@
+"""
+Created on Mon Jul 26 15:09:15 2021
+
+@author: Anonymous
+"""
+
 from Agent_tf_newstruct7 import Agent_tf
 # from Agent import Agent_tf
 from loadData3 import loadData
@@ -92,7 +98,6 @@ parser.add_argument("--trainedModelToUse",default=0)
 
 
 args = parser.parse_args()
-#  0.0026150904111835473
 
 for key,value in args.__dict__.items():
     print(key + ' = ' + str(value))
@@ -220,24 +225,6 @@ if modelType == 'pg':
    
     
     
-    # print(short_exp)
-    # print(long_exp)
-    
-    # print(short_exp_test)
-    # print(long_exp_test)    
-    
-    # print(short_cvar)
-    # print(long_cvar)
-    
-    # print(short_cvar_test)
-    # print(long_cvar_test)   
-    
-    # print(short_max)
-    # print(long_max)
-    
-    # print(short_max_test)
-    # print(long_max_test) 
-    
     print(short_loss_time)
     print(long_loss_time)
     
@@ -245,28 +232,6 @@ if modelType == 'pg':
     # ERP = (short_HE + long_HE)/2
     
 elif modelType == 'ddpg':
-    
-    # agent = def_agent(pMeasure=PerformanceMeasure.Expectile)   
-    # with tf.compat.v1.Session() as sess:
-    #     perf_in, perf_out,HE1, V_0 = agent.train_test_ddpg(sess, x, x_Test,-1)
-        
-    # agent = def_agent(pMeasure=PerformanceMeasure.MSE)
-    # with tf.compat.v1.Session() as sess:
-    #     perf_in, perf_out,HE2, V_0 = agent.train_test_ddpg(sess, x, x_Test,-1)
-    
-    # agent = def_agent(pMeasure=PerformanceMeasure.MSE)
-    # with tf.compat.v1.Session() as sess:
-    #     perf_in, perf_out,HE3, V_0 = agent.train_test_ddpg(sess, x, x_Test,-1)
-    
-    # fig = plt.figure()
-    # plt.plot(HE1,label='Expectile1')
-    # plt.plot(HE2,label='MSE1')
-    # plt.plot(HE3,label='MSE2')
-    # plt.legend()
-    # plt.savefig('D:/Saeed/Equal_Risk_RL/EqualRisk/results/AC/Q_0.png')
-    
-    
-    # plt.close(fig)
     
     epochs = 500000 ## ## 2000000
     if expectile_value == .5:
@@ -333,24 +298,7 @@ elif modelType == 'ddpg':
     print('-----------------------------------------------------')
     
     
-    
-    
-    
-    
-    # print(short_HE[-1])
-    # print(long_HE[-1])    
-    
-    # print(perf_in_short)
-    # print(perf_in_long)
-    
-    # print(perf_out_short)
-    # print(perf_out_long) 
-
-    # print(short_HE_Train[-1])
-    # print(long_HE_Train[-1])     
-    
-    # print(short_HE_Test[-1])
-    # print(long_HE_Test[-1])
+   
     
     print(short_loss_time_AC)
     print(long_loss_time_AC)
@@ -379,26 +327,7 @@ elif modelType == 'approximate':
     with tf.compat.v1.Session() as sess:
         perf_in_short, perf_out_short, short_HE,a_t,perf_in_short_max,perf_out_short_max,perf_in_short_cvar,perf_out_short_cvar,short_loss_time_DP,short_loss_time_DP_static = agent.train_test_approximate(sess,x, x_Test,1)
     
-    # print(short_HE)
-    # print(long_HE)
     
-    # print(perf_in_short)
-    # print(perf_in_long)
-    
-    # print(perf_out_short) 
-    # print(perf_out_long)
-    
-    # print(perf_in_short_cvar)
-    # print(perf_in_long_cvar)
-    
-    # print(perf_out_short_cvar)
-    # print(perf_out_long_cvar) 
-    
-    # print(perf_in_short_max)
-    # print(perf_in_long_max)
-    
-    # print(perf_out_short_max)
-    # print(perf_out_long_max) 
     
     print(short_loss_time_DP)
     print(long_loss_time_DP)
@@ -407,29 +336,4 @@ elif modelType == 'approximate':
     print(long_loss_time_DP_static)
     
    
-    # cvar_short = []
-    # cvar_long = []
-    # cvar_counter = []
-    # for cvar_val in np.arange(.99,.1,-.01):            
-    #     cvar_short.append(agent.train_test_approximate(x, x_Test,1,loss_type,cvar_val))
-    #     cvar_long.append(agent.train_test_approximate(x, x_Test,-1,loss_type,cvar_val))
-    #     cvar_counter.append(cvar_val)
     
-    #     fig = plt.figure()
-    #     plt.plot(cvar_counter,cvar_short)
-    #     # plt.legend()
-    #     plt.savefig('D:/Saeed/Equal_Risk_RL/EqualRisk/results/APP/cvar_short.png')
-    #     plt.close(fig)
-    #     print('------')
-        
-    #     fig = plt.figure()
-    #     plt.plot(cvar_counter,cvar_long)
-    #     # plt.legend()
-    #     plt.savefig('D:/Saeed/Equal_Risk_RL/EqualRisk/results/APP/cvar_long.png')
-    #     plt.close(fig)
-    #     print('------')
-       
-    
-    
-    # ERP = (short_HE + long_HE)/2
-        
